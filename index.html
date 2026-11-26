@@ -166,48 +166,47 @@
         // =========================================================================
         // 1. 預設連結儲存區（INITIAL_LINKS）
         // =========================================================================
-        const INITIAL_LINKS = {
+       const INITIAL_LINKS = {
             xhs: {
-                'd2-b1': '', // 麗江•臨嬴自助快餐
-                'd2-m0': '', // 象山市場
-                'd2-m1': '', // 忠義市場
-                'd2-m2': '', // 鶴慶老街（舊物店）
-                'd2-f1': '', // 牛扒呼酸菜牛肉火鍋
-                'd2-f2': '', // 柒喜三怪火鍋
-                'd2-f3': '', // 蘇記隔鍋香餐廳（無花果雞煲）
-                'd2-f4': '', // 安曉閑的干鍋店（總店/鮮蛙銅）
-                'd2-f5': '', // 鶴合園（木姜子風味干鍋）
-                'd2-f6': '', // 天天鮮（麗江古城店）
-                'd2-f7': '', // 小辣椒川菜館（祥雲街吉祥段店）
-                'd2-f8': '', // 麗鶴飯店
-                'd2-f9': '', // 食在餛炖（番茄湯）
-                'd3-m1': '', // 束河古鎮
-                'd3-l1': '', // 丹鳳含書・納西農家原味食府
-                'd3-l2': '', // 林記農家柴火飯
-                'd3-l3': '', // 傑佳清真牛肉館
-                'd4-b1': '', // 納峰清真小吃（欣欣小區店）
-                'd4-b2': '', // 清真民食坊（清真牛肉餃子）
-                'd4-m1': '', // 下關二手市集
-                'd4-m2': '', // 龍尾正街舊貨店
-                'd4-m3': '', // 大關邑綜合農貿市場
-                'd4-d1': '', // 沙孝保山清真銅瓢牛肉
-                'd5-f1': '', // 見手青純野生菌火塘
-                'd5-f2': '', // 雲板扎青興菌純野生菌火塘
-                'd5-f3': '', // 傣家姑娘手抓飯
-                'd5-f4': '', // 南詔村現炒雲南菜
-                'd6-f1': '', // 鴿百年松毛乳鴿（煤機廠店）
-                'd6-m1': '', // 潘家灣舊貨市場
-                'd6-e1': '', // 篆新農貿市場
-                'd6-e2': ''  // 翠湖公園 / 文林街
+                'd2-b1': 'https://www.xiaohongshu.com/discovery/item/6aae4467000000002b0270e9?source=webshare&xhsshare=pc_web&xsec_token=ABhnc-K1uREEva7Ahe1kZnATj2vRvy8uZoMgeIMIvMUEU=&xsec_source=pc_share',
+                'd2-m0': 'https://www.xiaohongshu.com/discovery/item/6aa63ac70000000028039991?source=webshare&xhsshare=pc_web&xsec_token=ABeQwqTIpzDyLLidg-SC62GNS7s_t9xxfhjuNRfqRl4_w=&xsec_source=pc_share',
+                'd2-m1': 'https://www.xiaohongshu.com/discovery/item/6ac07745000000001301a671?source=webshare&xhsshare=pc_web&xsec_token=AB045Zi_Nn7KM2NAPsoufWjUa5vWzBy0xRi6Llqrn7c4I=&xsec_source=pc_share',
+                'd2-m2': 'https://www.xiaohongshu.com/discovery/item/68b926c8000000001c00a9d7?source=webshare&xhsshare=pc_web&xsec_token=ABwrsCmF1KIg7pSTmahMgthb0KoyjwCSFB_lGDNik6DWU=&xsec_source=pc_share',
+                'd2-f1': 'https://www.xiaohongshu.com/discovery/item/68f08dd4000000000302e6a9?source=webshare&xhsshare=pc_web&xsec_token=ABHFTzOCHP0yhHk83RGcq-WP02iPp_NzLfYAuWiCHteSM=&xsec_source=pc_share',
+                'd2-f2': 'https://www.xiaohongshu.com/discovery/item/6af82c1c0000000022038483?source=webshare&xhsshare=pc_web&xsec_token=ABjoIw5jUGewQr6Ik44paB9ev-JZXqjscf7P6oLmc583E=&xsec_source=pc_share',
+                'd2-f3': 'https://www.xiaohongshu.com/discovery/item/6725f323000000003c01b932?source=webshare&xhsshare=pc_web&xsec_token=ABp7T85sK97Otk6CKmKVmyHIzAvDMNoKAca2ZhxBGpFDI=&xsec_source=pc_share',
+                'd2-f4': 'https://www.xiaohongshu.com/discovery/item/6adea42a0000000016019644?source=webshare&xhsshare=pc_web&xsec_token=ABIbV_5MjLSpiO4yp4se7rTLE7TBDl5dFfry_jdMRDiIg=&xsec_source=pc_share',
+                'd2-f5': 'https://www.xiaohongshu.com/discovery/item/6af47576000000002a02805d?source=webshare&xhsshare=pc_web&xsec_token=AB03X508QOkyvTVz9B1FqvY9ANdUS5RwbOcwJOfF61s3Q=&xsec_source=pc_share',
+                'd2-f6': 'https://www.xiaohongshu.com/discovery/item/67e2b4e9000000001e00b348?source=webshare&xhsshare=pc_web&xsec_token=ABypckrKelPI3NhDH1b1wJzEj_LS1_zEU7FFf3KunYpD0=&xsec_source=pc_share',
+                'd2-f7': 'https://www.xiaohongshu.com/discovery/item/6724d47b000000003c01bd14?source=webshare&xhsshare=pc_web&xsec_token=AB9VjFQiSjitm8rOnUfSlSktpz4MIohJwtl7yAQBwyors=&xsec_source=pc_share',
+                'd2-f8': 'https://www.xiaohongshu.com/discovery/item/69350360000000001b02123f?source=webshare&xhsshare=pc_web&xsec_token=ABTUwEM29riaWNPrfM7KrupG97Fvj-HEZCaitDxIzb-Gc=&xsec_source=pc_share',
+                'd2-f9': 'https://www.xiaohongshu.com/discovery/item/66275cdc00000000010338f9?source=webshare&xhsshare=pc_web&xsec_token=ABnGaCf6YCzz1N71GXkIJRWKCMJPQNlm-9le3Zk5MeKPo=&xsec_source=pc_share',
+                'd3-m1': 'https://www.xiaohongshu.com/discovery/item/6b058c62000000002b03fed3?source=webshare&xhsshare=pc_web&xsec_token=ABBY-LRV_j2Kb8XpYSOBO70hvkuGEBvuwBjQtI1LNeNlc=&xsec_source=pc_share',
+                'd3-l1': 'https://www.xiaohongshu.com/discovery/item/684988ff000000002202e1d4?source=webshare&xhsshare=pc_web&xsec_token=ABRhansf5_lnKpaBBW_DxnjwmPExEFfFNuf-HW-5ya78M=&xsec_source=pc_share',
+                'd3-l2': 'https://www.xiaohongshu.com/discovery/item/6aae6aac000000000d0254be?source=webshare&xhsshare=pc_web&xsec_token=ABhnc-K1uREEva7Ahe1kZnAZm5CKgjV8g8sIGkPANTORk=&xsec_source=pc_share',
+                'd3-l3': 'https://www.xiaohongshu.com/discovery/item/68085e12000000001d02e226?source=webshare&xhsshare=pc_web&xsec_token=ABiwzByXuV0EqsTnHCeQhCvo9fH1_F9g1k1fIXriUABZ0=&xsec_source=pc_share',
+                'd4-b1': 'https://www.xiaohongshu.com/discovery/item/6976e99e000000002103e239?source=webshare&xhsshare=pc_web&xsec_token=ABPilccz8KBEF2HkcXt0Rq9Lfme0VJpT4GYzRkcQu-Dt0=&xsec_source=pc_share',
+                'd4-b2': 'https://www.xiaohongshu.com/discovery/item/660e9ec7000000001b00c053?source=webshare&xhsshare=pc_web&xsec_token=AB3wwTx2Qmr28eOp1DO0NpJvUcJAbGtbKMVgYChW78EMU=&xsec_source=pc_share',
+                'd4-m1': 'https://www.xiaohongshu.com/discovery/item/6b029882000000002b01aac6?source=webshare&xhsshare=pc_web&xsec_token=AB3fPMStV6De_NHDb4Ck9K-Ux11KUHr5pNEVHhUf4AisM=&xsec_source=pc_share',
+                'd4-m2': 'https://www.xiaohongshu.com/discovery/item/696333d2000000000e03d4a1?source=webshare&xhsshare=pc_web&xsec_token=ABAxWS3b23aSR0NW2-dYOBjRVE2crk4te9xlrvVxSS_Ck=&xsec_source=pc_share',
+                'd4-m3': 'https://www.xiaohongshu.com/discovery/item/69e96771000000002200e4c3?source=webshare&xhsshare=pc_web&xsec_token=ABl2_Ea4gEIJEYrnhsAC6RjSsSOU_Sry4zm0yY6n-QEME=&xsec_source=pc_share',
+                'd4-d1': 'https://www.xiaohongshu.com/discovery/item/6a92f408000000002c03cfb8?source=webshare&xhsshare=pc_web&xsec_token=AB6MEx8O9Qoq4mP8U0-Ypo8-2AgVddLzVEdMrYP2B2_P4=&xsec_source=pc_share',
+                'd5-f1': 'https://www.xiaohongshu.com/discovery/item/6a4a39c9000000001603fedb?source=webshare&xhsshare=pc_web&xsec_token=ABmn0GRSiDPMN5BCOop9w5Zp1UBcHt_qSWRZAB1oJDS-I=&xsec_source=pc_share',
+                'd5-f2': 'https://www.xiaohongshu.com/discovery/item/6aed4b960000000025039084?source=webshare&xhsshare=pc_web&xsec_token=ABRVM4W2u_7OM7aJcCj5Y129FC2lx4gVkVc9VzoRiw3HA=&xsec_source=pc_share',
+                'd5-f3': 'https://www.xiaohongshu.com/discovery/item/67d43f150000000009014f36?source=webshare&xhsshare=pc_web&xsec_token=ABR-aWefD2YFpOL5sm9vLmpNaW6BzinsQpujOKWh1pdnE=&xsec_source=pc_share',
+                'd5-f4': 'https://www.xiaohongshu.com/discovery/item/6a36cd2d000000000f0070eb?source=webshare&xhsshare=pc_web&xsec_token=ABCcpwEb455isn_t9cXyTYW0WAjeuFk0oD9YhCenm_BOk=&xsec_source=pc_share',
+                'd6-f1': 'https://www.xiaohongshu.com/discovery/item/6ab1eabc0000000034001b89?source=webshare&xhsshare=pc_web&xsec_token=ABm6Slj71KnFSxT6VXRHNVbDcm5DN4_Nz-hxyzGG0Lw3s=&xsec_source=pc_share',
+                'd6-m1': 'https://www.xiaohongshu.com/discovery/item/69e36f78000000002101206f?source=webshare&xhsshare=pc_web&xsec_token=ABQ281YzmtCoYK8NQMvz5eiv9S807EWZAhgSbAnFhGSps=&xsec_source=pc_share',
+                'd6-e1': 'https://www.xiaohongshu.com/discovery/item/6b07f54f000000001802597f?source=webshare&xhsshare=pc_web&xsec_token=AB7XwtotMYtkyFbR06BH67Nq0PuA2tHoEvDMgqtAAiF20=&xsec_source=pc_share'
             },
             ctrip: {
-                'hotel-1': '',      // 麗江古城區木野全景民宿（麗江古城大水車2店）
-                'hotel-2': '',      // 麗江紫藤緣客棧（麗江古城店）
-                'hotel-2-alt1': '', // 備選：朴心有風小院
-                'hotel-2-alt2': '', // 備選：ERSHI爾是山
-                'hotel-3': '',      // 《那山！na海》270度無遮擋一線海景Loft
-                'hotel-4': '',      // 山山有里 Hills Lair奢邸（大理古城店 - 12/27）
-                'hotel-5': ''       // 山山有里 Hills Lair奢邸（大理古城店 - 12/28）
+                'hotel-1': 'https://hotels.ctrip.com/hotels/110670379.html?cityid=37&checkIn=2026-12-24&checkOut=2026-12-25&crn=1&adult=2&children=0&detailFilters=29%7C1%7E29%7E1%7C2',
+                'hotel-2': '#小程序://携程旅行/ipr9dOp6PrtnpHf',
+                'hotel-2-alt1': '#小程序://携程旅行/pB40z6Q5zQCS3PG',
+                'hotel-2-alt2': '#小程序://携程旅行/8ATUFxfqGyuIF9g',
+                'hotel-3': '#小程序://携程旅行/GSHpQY5t5r6cFJx',
+                'hotel-4': '#小程序://携程旅行/CuLzUlQuHDEuG4J',
+                'hotel-5': '#小程序://携程旅行/CuLzUlQuHDEuG4J'
             }
         };
 
