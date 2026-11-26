@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雲南冬日慢旅：麗江・大理 6天5夜自由行</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FAF7F2',
+                        creamCard: '#FFFDF9',
+                        caramel: '#8C5A3C',
+                        caramelDark: '#6F442B',
+                        caramelLight: '#F4ECE4',
+                        snowblue: '#4A6B82',
+                        snowblueLight: '#EAF1F6',
+                        xhs: '#FF2442',
+                        xhsLight: '#FFF0F2',
+                        ctrip: '#0284C7',
+                        ctripLight: '#E0F2FE',
+                        ink: '#2E2925',
+                        muted: '#756A61',
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FAF7F2;
+            color: #2E2925;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .warm-card {
+            background-color: #FFFDF9;
+            border: 1px solid rgba(140, 90, 60, 0.14);
+            box-shadow: 0 8px 24px -12px rgba(140, 90, 60, 0.14);
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tab-enter {
+            animation: fadeUp 0.24s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-cream text-ink min-h-screen flex flex-col">
+
+    <!-- 頂部浪漫封面與快速同步列 -->
+    <header class="w-full max-w-4xl mx-auto px-3 sm:px-6 pt-4 sm:pt-6">
+        <div class="rounded-3xl p-5 sm:p-7 text-white shadow-lg relative overflow-hidden"
+             style="background: linear-gradient(135deg, #6E4730 0%, #8C5A3C 52%, #4A6B82 100%);">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/15 backdrop-blur-xs">
+                    <span>❄️</span>
+                    <span>6天5夜・麗江2晚・大理3晚</span>
+                </span>
+                <button type="button" onclick="openWishlistDrawer()"
+                        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-white text-ink shadow-xs hover:bg-cream transition cursor-pointer">
+                    <span>❤️</span>
+                    <span>她的心願清單</span>
+                    <span id="wishlistCountBadge" class="px-1.5 py-0.5 rounded-full bg-xhsLight text-xhs font-bold">0</span>
+                </button>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">
+                雲南冬日慢旅：麗江・大理 6天5夜自由行
+            </h1>
+            <p class="text-sm sm:text-base text-white/90 mt-1">
+                2026年12月24日（四）－ 12月29日（二）
+            </p>
+
+            <div class="mt-4 pt-3.5 border-t border-white/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs sm:text-sm">
+                <div class="inline-flex items-center gap-2 bg-black/15 px-3.5 py-2 rounded-2xl">
+                    <span>✈️</span>
+                    <span>珠海金灣機場 ↔ 昆明長水機場</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-xs text-white/85">
+                        已存連結：<strong id="savedLinkCountText" class="text-white">0</strong> 條
+                    </span>
+                    <button type="button" onclick="copyShareableUrl()"
+                            class="px-3 py-1.5 rounded-xl bg-white text-ink font-semibold text-xs hover:bg-cream transition cursor-pointer">
+                        🔗 複製含連結分享網址
+                    </button>
+                    <button type="button" onclick="copyInitialLinksCode()"
+                            class="px-3 py-1.5 rounded-xl bg-creamCard text-ink font-semibold text-xs hover:bg-cream transition cursor-pointer">
+                        💻 複製 INITIAL_LINKS
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 日期與分頁導覽列 -->
+        <nav aria-label="行程分頁" id="tabBar"
+             class="mt-4 flex gap-2 overflow-x-auto no-scrollbar pb-1">
+        </nav>
+    </header>
+
+    <!-- 主內容區 -->
+    <main id="appContent" class="w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 flex-1 tab-enter">
+    </main>
+
+    <!-- 她的心願清單彈窗 -->
+    <div id="wishlistModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-ink/50">
+        <div class="w-full max-w-lg rounded-t-3xl sm:rounded-3xl bg-creamCard text-ink border border-caramel/20 shadow-2xl p-5 sm:p-6 max-h-[82vh] flex flex-col">
+            <div class="flex items-center justify-between pb-3 border-b border-caramel/15">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">❤️</span>
+                    <h2 class="text-lg font-bold text-ink">她的心願清單</h2>
+                </div>
+                <button type="button" onclick="closeWishlistDrawer()"
+                        class="w-8 h-8 rounded-full bg-caramelLight text-ink font-bold flex items-center justify-center hover:bg-caramel hover:text-white transition cursor-pointer">
+                    ✕
+                </button>
+            </div>
+            <div id="wishlistListContainer" class="py-4 overflow-y-auto space-y-2.5 flex-1 text-ink"></div>
+            <div class="pt-3 border-t border-caramel/15 flex gap-2">
+                <button type="button" onclick="copyWishlistSummary()"
+                        class="flex-1 py-2.5 px-4 rounded-xl bg-caramel text-white text-sm font-semibold hover:bg-caramelDark transition cursor-pointer">
+                    📋 複製心願清單
+                </button>
+                <button type="button" onclick="closeWishlistDrawer()"
+                        class="py-2.5 px-4 rounded-xl bg-cream text-ink border border-caramel/25 text-sm font-semibold hover:bg-caramelLight transition cursor-pointer">
+                    關閉
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w-full max-w-4xl mx-auto px-4 py-6 text-center text-xs text-muted">
+        雲南冬日慢旅手冊・點擊地址即可複製叫車・貼上小紅書與攜程連結後自動寫入網址與本地紀錄
+    </footer>
+
+    <div id="toastBanner"
+         class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-200 px-4 py-2.5 rounded-2xl bg-ink text-cream text-xs sm:text-sm font-medium shadow-xl">
+        已複製
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. 預設連結儲存區（INITIAL_LINKS）
+        // =========================================================================
+        const INITIAL_LINKS = {
+            xhs: {
+                'd2-b1': '', // 麗江•臨嬴自助快餐
+                'd2-m0': '', // 象山市場
+                'd2-m1': '', // 忠義市場
+                'd2-m2': '', // 鶴慶老街（舊物店）
+                'd2-f1': '', // 牛扒呼酸菜牛肉火鍋
+                'd2-f2': '', // 柒喜三怪火鍋
+                'd2-f3': '', // 蘇記隔鍋香餐廳（無花果雞煲）
+                'd2-f4': '', // 安曉閑的干鍋店（總店/鮮蛙銅）
+                'd2-f5': '', // 鶴合園（木姜子風味干鍋）
+                'd2-f6': '', // 天天鮮（麗江古城店）
+                'd2-f7': '', // 小辣椒川菜館（祥雲街吉祥段店）
+                'd2-f8': '', // 麗鶴飯店
+                'd2-f9': '', // 食在餛炖（番茄湯）
+                'd3-m1': '', // 束河古鎮
+                'd3-l1': '', // 丹鳳含書・納西農家原味食府
+                'd3-l2': '', // 林記農家柴火飯
+                'd3-l3': '', // 傑佳清真牛肉館
+                'd4-b1': '', // 納峰清真小吃（欣欣小區店）
+                'd4-b2': '', // 清真民食坊（清真牛肉餃子）
+                'd4-m1': '', // 下關二手市集
+                'd4-m2': '', // 龍尾正街舊貨店
+                'd4-m3': '', // 大關邑綜合農貿市場
+                'd4-d1': '', // 沙孝保山清真銅瓢牛肉
+                'd5-f1': '', // 見手青純野生菌火塘
+                'd5-f2': '', // 雲板扎青興菌純野生菌火塘
+                'd5-f3': '', // 傣家姑娘手抓飯
+                'd5-f4': '', // 南詔村現炒雲南菜
+                'd6-f1': '', // 鴿百年松毛乳鴿（煤機廠店）
+                'd6-m1': '', // 潘家灣舊貨市場
+                'd6-e1': '', // 篆新農貿市場
+                'd6-e2': ''  // 翠湖公園 / 文林街
+            },
+            ctrip: {
+                'hotel-1': '',      // 麗江古城區木野全景民宿（麗江古城大水車2店）
+                'hotel-2': '',      // 麗江紫藤緣客棧（麗江古城店）
+                'hotel-2-alt1': '', // 備選：朴心有風小院
+                'hotel-2-alt2': '', // 備選：ERSHI爾是山
+                'hotel-3': '',      // 《那山！na海》270度無遮擋一線海景Loft
+                'hotel-4': '',      // 山山有里 Hills Lair奢邸（大理古城店 - 12/27）
+                'hotel-5': ''       // 山山有里 Hills Lair奢邸（大理古城店 - 12/28）
+            }
+        };
+
+        // =========================================================================
+        // 2. 行程資料設定
+        // =========================================================================
+        const TABS = [
+            { id: 'overview', label: '總覽與交通' },
+            { id: 'day1', label: 'Day 1 (12/24 四)' },
+            { id: 'day2', label: 'Day 2 (12/25 五)' },
+            { id: 'day3', label: 'Day 3 (12/26 六)' },
+            { id: 'day4', label: 'Day 4 (12/27 日)' },
+            { id: 'day5', label: 'Day 5 (12/28 一)' },
+            { id: 'day6', label: 'Day 6 (12/29 二)' }
+        ];
+
+        const TRANSIT_OVERVIEW = [
+            { step: '1', route: '珠海金灣機場 → 昆明長水機場', mode: '飛機', duration: '約 2小時30分', note: '10:00 起飛 / 12:30 抵達' },
+            { step: '2', route: '昆明長水機場 → 昆明站', mode: '滴滴', duration: '約 33分鐘', note: '預留取行李時間，約 15:00 到站' },
+            { step: '3', route: '昆明站 → 麗江站', mode: '高鐵', duration: '約 3小時35分', note: '班次選擇 16:39 或 17:26' },
+            { step: '4', route: '麗江站 → 大理站', mode: '高鐵', duration: '約 2小時', note: '12/26 下午或晚上出發' },
+            { step: '5', route: '大理站 → 昆明站（市中心）', mode: '高鐵', duration: '約 2小時10分', note: '12/29 返程，建議買到「昆明站」方便市區逛街' },
+            { step: '6', route: '昆明站 → 昆明長水機場', mode: '滴滴', duration: '約 26–30分鐘', note: '21:55 飛機回程' }
+        ];
+
+        const HOTELS = [
+            {
+                id: 'hotel-1',
+                nightLabel: '第1晚｜12/24 (四)｜麗江古城（北門）',
+                badge: '首選',
+                name: '麗江古城區木野全景民宿（麗江古城大水車2店）',
+                room: '奶油原木風豪華大床房',
+                address: '麗江市古城区古城北門大水車附近',
+                distance: '麗江站 → 民宿：滴滴約 14 分鐘',
+                highlights: '網紅觀景台觀古城全景、浴缸、萌寵'
+            },
+            {
+                id: 'hotel-2',
+                nightLabel: '第2晚｜12/25 (五)｜麗江古城',
+                badge: '首選',
+                name: '麗江紫藤緣客棧（麗江古城店）',
+                room: '百年納西庭院觀景大床房',
+                address: '麗江市古城区麗江紫藤緣客棧（麗江古城店）',
+                distance: '麗江古城區內',
+                highlights: '含早餐、院內咖啡下午茶、可接站'
+            },
+            {
+                id: 'hotel-2-alt1',
+                nightLabel: '第2晚｜備選方案 A',
+                badge: '備選',
+                name: '朴心｜有風小院花園小院',
+                room: '安靜民宿・超大套房・星級床墊',
+                address: '麗江市古城区大研街道文智居委會文運三村2號附1號',
+                distance: '麗江古城北門附近',
+                highlights: '花園小院、安靜舒適'
+            },
+            {
+                id: 'hotel-2-alt2',
+                nightLabel: '第2晚｜備選方案 B',
+                badge: '備選',
+                name: 'ERSHI爾是山・麗江古城全景白房子度假美宿',
+                room: '觀景大床房',
+                address: '麗江市古城区近麗江古城大水車',
+                distance: '近麗江古城大水車',
+                highlights: '歡迎水果、住三晚送接機、萌寵陪伴'
+            },
+            {
+                id: 'hotel-3',
+                nightLabel: '第3晚｜12/26 (六)｜大理下關',
+                badge: '海景Loft',
+                name: '《那山！na海》270度無遮擋一線海景Loft',
+                room: '270度海景Loft',
+                address: '大理州大理市大理濱海俊園',
+                distance: '近大理港碼頭、興盛橋、高鐵站',
+                highlights: '12/27 12:00 退房，可寄放行李至 18:00'
+            },
+            {
+                id: 'hotel-4',
+                nightLabel: '第4晚｜12/27 (日)｜大理古城',
+                badge: '古城奢邸',
+                name: '山山有里 Hills Lair奢邸（大理古城店）',
+                room: '大理古城度假房型',
+                address: '雲南大理市大理鎮南門新村7組20號',
+                distance: '12/27 約 18:00 辦理入住',
+                highlights: '近大理古城南門'
+            },
+            {
+                id: 'hotel-5',
+                nightLabel: '第5晚｜12/28 (一)｜大理古城（續住）',
+                badge: '續住',
+                name: '山山有里 Hills Lair奢邸（大理古城店）',
+                room: '大理古城度假房型（續住）',
+                address: '雲南大理市大理鎮南門新村7組20號',
+                distance: '前往大理站車程約 30 分鐘',
+                highlights: '連住兩晚更從容'
+            }
+        ];
+
+        const DAY2_FOODS = [
+            { id: 'd2-f1', category: 'hotpot', catLabel: '火鍋 / 干鍋', name: '牛扒呼酸菜牛肉火鍋', address: '麗江市古城区太和路', note: '酸菜牛肉火鍋' },
+            { id: 'd2-f2', category: 'hotpot', catLabel: '火鍋 / 干鍋', name: '柒喜三怪火鍋', address: '麗江市古城区大研廣場', note: '大研廣場附近' },
+            { id: 'd2-f3', category: 'hotpot', catLabel: '火鍋 / 干鍋', name: '蘇記隔鍋香餐廳（無花果雞煲）', address: '麗江市香江集貿市場53棟02', note: '無花果雞煲' },
+            { id: 'd2-f4', category: 'hotpot', catLabel: '火鍋 / 干鍋', name: '安曉閑的干鍋店（總店/鮮蛙銅）', address: '麗江市古城区（另有「第九家干鍋店」分店）', note: '鮮蛙銅 / 干鍋風味' },
+            { id: 'd2-f5', category: 'hotpot', catLabel: '火鍋 / 干鍋', name: '鶴合園（木姜子風味干鍋）', address: '麗江市古城区聯通大樓西邊', note: '木姜子風味干鍋' },
+            { id: 'd2-f6', category: 'local', catLabel: '本地菜 / 小吃', name: '天天鮮（麗江古城店）', address: '麗江古城區', note: '納西孃孃本地炒菜' },
+            { id: 'd2-f7', category: 'local', catLabel: '本地菜 / 小吃', name: '小辣椒川菜館（祥雲街吉祥段店）', address: '麗江市古城区祥雲街吉祥段', note: '家常川菜風味' },
+            { id: 'd2-f8', category: 'local', catLabel: '本地菜 / 小吃', name: '麗鶴飯店', address: '麗江市古城区黑龍潭門口', note: '黑龍潭旁餐館' },
+            { id: 'd2-f9', category: 'local', catLabel: '本地菜 / 小吃', name: '食在餛炖（番茄湯）', address: '麗江市古城区古城白龍廣場對面', note: '番茄湯餛飩' }
+        ];
+
+        const DAY5_FOODS = [
+            { id: 'd5-f1', category: 'fungi', catLabel: '野生菌火塘', name: '見手青純野生菌火塘', address: '大理市大理古城內', note: '野生菌火塘體驗' },
+            { id: 'd5-f2', category: 'fungi', catLabel: '野生菌火塘', name: '雲板扎青興菌純野生菌火塘', address: '大理市大理古城附近', note: '純野生菌火塘' },
+            { id: 'd5-f3', category: 'yunnan', catLabel: '特色雲南菜', name: '傣家姑娘手抓飯', address: '大理市大理古城（人民路/博愛路一帶）', note: '傣味手抓飯' },
+            { id: 'd5-f4', category: 'yunnan', catLabel: '特色雲南菜', name: '南詔村現炒雲南菜', address: '大理市大理古城南門/復興路一帶', note: '現炒雲南家常菜' }
+        ];
+
+        // =========================================================================
+        // 3. 狀態管理與多重持久化（INITIAL_LINKS + localStorage + #links=...）
+        // =========================================================================
+        const STORAGE_KEY_LINKS = 'yunnan_trip_links_v3';
+        const STORAGE_KEY_WISHLIST = 'yunnan_trip_wishlist_v3';
+
+        let activeTab = 'overview';
+        let day1TrainOption = '16:39';
+        let day2FoodFilter = 'all';
+        let day6LuggagePlan = 'A';
+        let day6EveningPlan = 'market';
+        let editingLinkKey = null;
+
+        let linksMap = loadAllLinks();
+        let wishlist = loadWishlist();
+
+        function loadAllLinks() {
+            const combined = { xhs: {}, ctrip: {} };
+
+            if (INITIAL_LINKS && typeof INITIAL_LINKS === 'object') {
+                if (INITIAL_LINKS.xhs) {
+                    Object.keys(INITIAL_LINKS.xhs).forEach(function(key) {
+                        const val = String(INITIAL_LINKS.xhs[key] || '').trim();
+                        if (val) combined.xhs[key] = val;
+                    });
+                }
+                if (INITIAL_LINKS.ctrip) {
+                    Object.keys(INITIAL_LINKS.ctrip).forEach(function(key) {
+                        const val = String(INITIAL_LINKS.ctrip[key] || '').trim();
+                        if (val) combined.ctrip[key] = val;
+                    });
+                }
+            }
+
+            try {
+                const rawLocal = localStorage.getItem(STORAGE_KEY_LINKS);
+                if (rawLocal) {
+                    mergeLinkObject(combined, JSON.parse(rawLocal));
+                }
+            } catch (e) {}
+
+            try {
+                const hash = window.location.hash || '';
+                const match = hash.match(/links=([^&]+)/);
+                if (match && match[1]) {
+                    mergeLinkObject(combined, JSON.parse(decodeURIComponent(match[1])));
+                }
+            } catch (e) {}
+
+            return combined;
+        }
+
+        function mergeLinkObject(target, source) {
+            if (!source || typeof source !== 'object') return;
+            if (source.xhs && typeof source.xhs === 'object') {
+                Object.keys(source.xhs).forEach(function(k) {
+                    const v = String(source.xhs[k] || '').trim();
+                    if (v) target.xhs[k] = v;
+                });
+            }
+            if (source.ctrip && typeof source.ctrip === 'object') {
+                Object.keys(source.ctrip).forEach(function(k) {
+                    const v = String(source.ctrip[k] || '').trim();
+                    if (v) target.ctrip[k] = v;
+                });
+            }
+            Object.keys(source).forEach(function(k) {
+                if (k !== 'xhs' && k !== 'ctrip' && typeof source[k] === 'string') {
+                    const v = source[k].trim();
+                    if (v) {
+                        if (k.startsWith('hotel-')) target.ctrip[k] = v;
+                        else target.xhs[k] = v;
+                    }
+                }
+            });
+        }
+
+        function getStoredLink(platform, id) {
+            if (platform === 'ctrip') return (linksMap.ctrip && linksMap.ctrip[id]) ? linksMap.ctrip[id] : '';
+            return (linksMap.xhs && linksMap.xhs[id]) ? linksMap.xhs[id] : '';
+        }
+
+        function persistLinksEverywhere() {
+            try {
+                localStorage.setItem(STORAGE_KEY_LINKS, JSON.stringify(linksMap));
+            } catch (e) {}
+            try {
+                const encoded = encodeURIComponent(JSON.stringify(linksMap));
+                const newHash = '#links=' + encoded;
+                if (window.location.hash !== newHash) {
+                    history.replaceState(null, '', newHash);
+                }
+            } catch (e) {}
+            updateHeaderStats();
+        }
+
+        function extractUrlOrText(rawInput) {
+            const trimmed = String(rawInput || '').trim();
+            if (!trimmed) return '';
+            const urlMatch = trimmed.match(/https?:\/\/[^\s"'<>]+/i);
+            if (urlMatch && urlMatch[0]) {
+                return urlMatch[0].replace(/[.,;!?]+$/, '');
+            }
+            return trimmed;
+        }
+
+        function saveItemLink(platform, id, inputElId) {
+            const inputEl = document.getElementById(inputElId);
+            const cleaned = extractUrlOrText(inputEl ? inputEl.value : '');
+            if (!cleaned) {
+                showToast('請先貼上連結或分享文字');
+                return;
+            }
+            if (platform === 'ctrip') linksMap.ctrip[id] = cleaned;
+            else linksMap.xhs[id] = cleaned;
+
+            editingLinkKey = null;
+            persistLinksEverywhere();
+            renderContent();
+            showToast(platform === 'ctrip' ? '✅ 已儲存攜程連結（網址已同步）' : '✅ 已儲存小紅書連結（網址已同步）');
+        }
+
+        function startEditLink(platform, id) {
+            editingLinkKey = platform + ':' + id;
+            renderContent();
+            setTimeout(function() {
+                const el = document.getElementById('link-input-' + platform + '-' + id);
+                if (el) el.focus();
+            }, 30);
+        }
+
+        function cancelEditLink() {
+            editingLinkKey = null;
+            renderContent();
+        }
+
+        function removeItemLink(platform, id) {
+            if (platform === 'ctrip') delete linksMap.ctrip[id];
+            else delete linksMap.xhs[id];
+            editingLinkKey = null;
+            persistLinksEverywhere();
+            renderContent();
+            showToast('已移除連結');
+        }
+
+        function openSavedLink(platform, id, fallbackName) {
+            const saved = getStoredLink(platform, id);
+            if (saved) {
+                const targetUrl = /^https?:\/\//i.test(saved)
+                    ? saved
+                    : 'https://www.xiaohongshu.com/search_result?keyword=' + encodeURIComponent(saved);
+                window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                return;
+            }
+            if (platform === 'xhs') {
+                const query = encodeURIComponent(fallbackName + ' 菜色 推薦');
+                window.open('https://www.xiaohongshu.com/search_result?keyword=' + query, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        function loadWishlist() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_WISHLIST);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) return parsed;
+                }
+            } catch (e) {}
+            return [];
+        }
+
+        function toggleWishlist(itemId, title, subtitle) {
+            const idx = wishlist.findIndex(function(item) { return item.id === itemId; });
+            if (idx >= 0) {
+                wishlist.splice(idx, 1);
+                showToast('已從心願清單移除');
+            } else {
+                wishlist.push({ id: itemId, title: title, subtitle: subtitle || '' });
+                showToast('❤️ 已加入她的心願清單');
+            }
+            try {
+                localStorage.setItem(STORAGE_KEY_WISHLIST, JSON.stringify(wishlist));
+            } catch (e) {}
+            updateHeaderStats();
+            renderContent();
+        }
+
+        function isInWishlist(itemId) {
+            return wishlist.some(function(item) { return item.id === itemId; });
+        }
+
+        // =========================================================================
+        // 4. 介面元件建構器
+        // =========================================================================
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function copyText(text, label) {
+            const val = String(text || '');
+            if (!val) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(val).then(function() {
+                    showToast('📋 已複製：' + (label || val));
+                }).catch(function() {
+                    fallbackCopy(val, label);
+                });
+            } else {
+                fallbackCopy(val, label);
+            }
+        }
+
+        function fallbackCopy(val, label) {
+            const ta = document.createElement('textarea');
+            ta.value = val;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                showToast('📋 已複製：' + (label || val));
+            } catch (e) {
+                showToast('複製失敗，請手動選取');
+            }
+            document.body.removeChild(ta);
+        }
+
+        function copyShareableUrl() {
+            persistLinksEverywhere();
+            copyText(window.location.href, '含已存連結的分享網址');
+        }
+
+        function copyInitialLinksCode() {
+            const formatMap = function(obj) {
+                const keys = Object.keys(obj || {});
+                return keys.map(function(k, idx) {
+                    const v = String(obj[k] || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                    const comma = idx < keys.length - 1 ? ',' : '';
+                    return "                '" + k + "': '" + v + "'" + comma;
+                }).join('\n');
+            };
+            const code =
+                "const INITIAL_LINKS = {\n" +
+                "            xhs: {\n" +
+                formatMap(linksMap.xhs) + "\n" +
+                "            },\n" +
+                "            ctrip: {\n" +
+                formatMap(linksMap.ctrip) + "\n" +
+                "            }\n" +
+                "        };";
+            copyText(code, 'INITIAL_LINKS 程式碼');
+        }
+
+        function showToast(message) {
+            const el = document.getElementById('toastBanner');
+            if (!el) return;
+            el.textContent = message;
+            el.classList.remove('opacity-0');
+            el.classList.add('opacity-100');
+            clearTimeout(window.__toastTimer);
+            window.__toastTimer = setTimeout(function() {
+                el.classList.remove('opacity-100');
+                el.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        function updateHeaderStats() {
+            const wBadge = document.getElementById('wishlistCountBadge');
+            const lText = document.getElementById('savedLinkCountText');
+            if (wBadge) wBadge.textContent = wishlist.length;
+            const xhsCount = Object.keys(linksMap.xhs || {}).filter(function(k) { return Boolean(linksMap.xhs[k]); }).length;
+            const ctripCount = Object.keys(linksMap.ctrip || {}).filter(function(k) { return Boolean(linksMap.ctrip[k]); }).length;
+            if (lText) lText.textContent = xhsCount + ctripCount;
+        }
+
+        function renderXhsBar(id, placeName) {
+            const saved = getStoredLink('xhs', id);
+            const inputId = 'link-input-xhs-' + id;
+            const isEditing = editingLinkKey === ('xhs:' + id);
+
+            if (saved && !isEditing) {
+                return (
+                    '<div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-xl bg-xhsLight/80 border border-xhs/25">' +
+                        '<button type="button" onclick="openSavedLink(\'xhs\', \'' + escapeHtml(id) + '\', \'' + escapeHtml(placeName) + '\')" ' +
+                                'class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-xhs text-white text-xs font-semibold shadow-2xs hover:opacity-95 transition cursor-pointer">' +
+                            '<span>📕</span>' +
+                            '<span>小紅書看菜色</span>' +
+                        '</button>' +
+                        '<div class="flex items-center gap-2 text-xs">' +
+                            '<span class="text-muted truncate max-w-[140px] sm:max-w-[220px]">' + escapeHtml(saved) + '</span>' +
+                            '<button type="button" onclick="startEditLink(\'xhs\', \'' + escapeHtml(id) + '\')" ' +
+                                    'class="px-2 py-1 rounded-md bg-white text-ink border border-caramel/20 font-medium hover:bg-cream transition cursor-pointer">' +
+                                '改連結' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>'
+                );
+            }
+
+            return (
+                '<div class="mt-2.5 p-2.5 rounded-xl bg-xhsLight/60 border border-xhs/20">' +
+                    '<div class="flex flex-col sm:flex-row gap-2">' +
+                        '<div class="flex-1 flex items-center gap-1.5 bg-white rounded-lg px-2.5 py-1.5 border border-caramel/20">' +
+                            '<span class="text-sm">📕</span>' +
+                            '<input id="' + inputId + '" type="text" value="' + escapeHtml(saved) + '" ' +
+                                   'placeholder="貼上小紅書連結或分享文案..." ' +
+                                   'class="w-full text-xs text-ink bg-transparent focus:outline-none">' +
+                        '</div>' +
+                        '<div class="flex items-center gap-1.5">' +
+                            '<button type="button" onclick="saveItemLink(\'xhs\', \'' + escapeHtml(id) + '\', \'' + inputId + '\')" ' +
+                                    'class="px-3 py-1.5 rounded-lg bg-xhs text-white text-xs font-semibold hover:opacity-95 transition cursor-pointer">' +
+                                '儲存' +
+                            '</button>' +
+                            (isEditing
+                                ? '<button type="button" onclick="cancelEditLink()" class="px-2.5 py-1.5 rounded-lg bg-white text-ink border border-caramel/20 text-xs cursor-pointer">取消</button>' +
+                                  '<button type="button" onclick="removeItemLink(\'xhs\', \'' + escapeHtml(id) + '\')" class="px-2.5 py-1.5 rounded-lg bg-white text-xhs border border-xhs/30 text-xs cursor-pointer">清除</button>'
+                                : '') +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }
+
+        function renderCtripBar(id, hotelName) {
+            const saved = getStoredLink('ctrip', id);
+            const inputId = 'link-input-ctrip-' + id;
+            const isEditing = editingLinkKey === ('ctrip:' + id);
+
+            if (saved && !isEditing) {
+                return (
+                    '<div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-xl bg-ctripLight/80 border border-ctrip/25">' +
+                        '<button type="button" onclick="openSavedLink(\'ctrip\', \'' + escapeHtml(id) + '\', \'' + escapeHtml(hotelName) + '\')" ' +
+                                'class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-ctrip text-white text-xs font-semibold shadow-2xs hover:opacity-95 transition cursor-pointer">' +
+                            '<span>🏨</span>' +
+                            '<span>攜程看房型</span>' +
+                        '</button>' +
+                        '<div class="flex items-center gap-2 text-xs">' +
+                            '<span class="text-muted truncate max-w-[140px] sm:max-w-[220px]">' + escapeHtml(saved) + '</span>' +
+                            '<button type="button" onclick="startEditLink(\'ctrip\', \'' + escapeHtml(id) + '\')" ' +
+                                    'class="px-2 py-1 rounded-md bg-white text-ink border border-caramel/20 font-medium hover:bg-cream transition cursor-pointer">' +
+                                '改連結' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>'
+                );
+            }
+
+            return (
+                '<div class="mt-2.5 p-2.5 rounded-xl bg-ctripLight/60 border border-ctrip/20">' +
+                    '<div class="flex flex-col sm:flex-row gap-2">' +
+                        '<div class="flex-1 flex items-center gap-1.5 bg-white rounded-lg px-2.5 py-1.5 border border-caramel/20">' +
+                            '<span class="text-sm">🏨</span>' +
+                            '<input id="' + inputId + '" type="text" value="' + escapeHtml(saved) + '" ' +
+                                   'placeholder="貼上攜程民宿連結或分享文字..." ' +
+                                   'class="w-full text-xs text-ink bg-transparent focus:outline-none">' +
+                        '</div>' +
+                        '<div class="flex items-center gap-1.5">' +
+                            '<button type="button" onclick="saveItemLink(\'ctrip\', \'' + escapeHtml(id) + '\', \'' + inputId + '\')" ' +
+                                    'class="px-3 py-1.5 rounded-lg bg-ctrip text-white text-xs font-semibold hover:opacity-95 transition cursor-pointer">' +
+                                '儲存' +
+                            '</button>' +
+                            (isEditing
+                                ? '<button type="button" onclick="cancelEditLink()" class="px-2.5 py-1.5 rounded-lg bg-white text-ink border border-caramel/20 text-xs cursor-pointer">取消</button>' +
+                                  '<button type="button" onclick="removeItemLink(\'ctrip\', \'' + escapeHtml(id) + '\')" class="px-2.5 py-1.5 rounded-lg bg-white text-ctrip border border-ctrip/30 text-xs cursor-pointer">清除</button>'
+                                : '') +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }
+
+        function renderPlaceCard(opts) {
+            const liked = isInWishlist(opts.id);
+            const titleClickAttr = opts.withXhs
+                ? 'onclick="openSavedLink(\'xhs\', \'' + escapeHtml(opts.id) + '\', \'' + escapeHtml(opts.name) + '\')"'
+                : '';
+
+            return (
+                '<div class="warm-card rounded-2xl p-4">' +
+                    '<div class="flex items-start justify-between gap-2">' +
+                        '<div class="min-w-0">' +
+                            (opts.tag
+                                ? '<span class="inline-block px-2 py-0.5 rounded-md text-[11px] font-semibold bg-caramelLight text-caramel mb-1">' + escapeHtml(opts.tag) + '</span>'
+                                : '') +
+                            '<h3 ' + titleClickAttr + ' class="text-sm sm:text-base font-bold text-ink leading-snug ' + (opts.withXhs ? 'underline decoration-caramel/35 hover:text-xhs cursor-pointer transition' : '') + '">' +
+                                escapeHtml(opts.name) +
+                            '</h3>' +
+                            (opts.address
+                                ? '<p class="text-xs text-muted mt-1">📍 ' + escapeHtml(opts.address) + '</p>'
+                                : '') +
+                            (opts.note
+                                ? '<p class="text-xs text-ink/80 mt-1">' + escapeHtml(opts.note) + '</p>'
+                                : '') +
+                        '</div>' +
+                        '<div class="flex items-center gap-1.5 shrink-0">' +
+                            (opts.address
+                                ? '<button type="button" onclick="copyText(\'' + escapeHtml(opts.address) + '\', \'' + escapeHtml(opts.name) + ' 地址\')" ' +
+                                          'class="px-2.5 py-1 rounded-lg bg-cream text-ink border border-caramel/20 text-xs font-medium hover:bg-caramelLight transition cursor-pointer">📋 複製地址</button>'
+                                : '') +
+                            (opts.withWishlist !== false
+                                ? '<button type="button" onclick="toggleWishlist(\'' + escapeHtml(opts.id) + '\', \'' + escapeHtml(opts.name) + '\', \'' + escapeHtml(opts.address || opts.note || '') + '\')" ' +
+                                          'class="px-2.5 py-1 rounded-lg text-xs font-semibold border transition cursor-pointer ' +
+                                          (liked ? 'bg-xhs text-white border-xhs' : 'bg-white text-ink border-caramel/20 hover:bg-xhsLight') + '">' +
+                                          (liked ? '❤️ 已收藏' : '🤍 收藏') + '</button>'
+                                : '') +
+                        '</div>' +
+                    '</div>' +
+                    (opts.withXhs ? renderXhsBar(opts.id, opts.name) : '') +
+                    (opts.withCtrip ? renderCtripBar(opts.id, opts.name) : '') +
+                '</div>'
+            );
+        }
+
+        // =========================================================================
+        // 5. 分頁渲染
+        // =========================================================================
+        function renderTabs() {
+            const nav = document.getElementById('tabBar');
+            if (!nav) return;
+            nav.innerHTML = TABS.map(function(t) {
+                const active = t.id === activeTab;
+                return (
+                    '<button type="button" onclick="switchTab(\'' + t.id + '\')" ' +
+                            'class="shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition cursor-pointer ' +
+                            (active
+                                ? 'bg-caramel text-white shadow-sm'
+                                : 'bg-creamCard text-ink border border-caramel/15 hover:bg-caramelLight') + '">' +
+                        escapeHtml(t.label) +
+                    '</button>'
+                );
+            }).join('');
+        }
+
+        function switchTab(tabId) {
+            activeTab = tabId;
+            editingLinkKey = null;
+            renderTabs();
+            renderContent();
+        }
+
+        function renderContent() {
+            const main = document.getElementById('appContent');
+            if (!main) return;
+            main.classList.remove('tab-enter');
+            void main.offsetWidth;
+            main.classList.add('tab-enter');
+
+            if (activeTab === 'overview') main.innerHTML = buildOverviewHtml();
+            else if (activeTab === 'day1') main.innerHTML = buildDay1Html();
+            else if (activeTab === 'day2') main.innerHTML = buildDay2Html();
+            else if (activeTab === 'day3') main.innerHTML = buildDay3Html();
+            else if (activeTab === 'day4') main.innerHTML = buildDay4Html();
+            else if (activeTab === 'day5') main.innerHTML = buildDay5Html();
+            else if (activeTab === 'day6') main.innerHTML = buildDay6Html();
+        }
+
+        function buildOverviewHtml() {
+            const transitHtml = TRANSIT_OVERVIEW.map(function(item) {
+                return (
+                    '<div class="warm-card rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">' +
+                        '<div>' +
+                            '<span class="inline-block px-2 py-0.5 rounded-md text-xs font-bold bg-snowblueLight text-snowblue mr-2">' + escapeHtml(item.step) + '. ' + escapeHtml(item.mode) + '</span>' +
+                            '<span class="text-sm font-bold text-ink">' + escapeHtml(item.route) + '</span>' +
+                            '<p class="text-xs text-muted mt-1">' + escapeHtml(item.note) + '</p>' +
+                        '</div>' +
+                        '<span class="text-xs font-semibold text-caramel bg-caramelLight px-3 py-1 rounded-xl shrink-0 self-start sm:self-center">' + escapeHtml(item.duration) + '</span>' +
+                    '</div>'
+                );
+            }).join('');
+
+            const hotelsHtml = HOTELS.map(function(h) {
+                return renderPlaceCard({
+                    id: h.id,
+                    tag: h.nightLabel + '・' + h.badge,
+                    name: h.name,
+                    address: h.address,
+                    note: h.room + '｜' + h.distance + '｜' + h.highlights,
+                    withXhs: false,
+                    withCtrip: true
+                });
+            }).join('');
+
+            return (
+                '<div class="space-y-6">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel tracking-wider uppercase">OVERVIEW & TRANSIT</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">核心路線與城際大交通</h2>' +
+                        '<p class="text-sm text-ink/85 mt-2">珠海 → 昆明 → 麗江（2晚）→ 大理（3晚）→ 昆明 → 珠海</p>' +
+                    '</div>' +
+                    '<section class="space-y-3">' +
+                        '<h3 class="text-base font-bold text-ink">城際大交通一覽</h3>' +
+                        transitHtml +
+                    '</section>' +
+                    '<section class="space-y-3">' +
+                        '<h3 class="text-base font-bold text-ink">全程住宿與攜程連結</h3>' +
+                        hotelsHtml +
+                    '</section>' +
+                '</div>'
+            );
+        }
+
+        function buildDay1Html() {
+            const h1 = HOTELS[0];
+            return (
+                '<div class="space-y-4">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 1・2026年12月24日（週四）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">珠海出發 → 昆明轉乘 → 抵達麗江</h2>' +
+                        '<p class="text-sm text-muted mt-1">12:30 落地昆明長水機場，預留取行李與滴滴接駁，下午搭高鐵前往麗江。</p>' +
+                        '<div class="mt-3 flex flex-wrap gap-2">' +
+                            '<button type="button" onclick="day1TrainOption=\'16:39\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day1TrainOption === '16:39' ? 'bg-caramel text-white' : 'bg-cream text-ink border border-caramel/20') + '">高鐵班次 16:39（約 20:14 到麗江站）</button>' +
+                            '<button type="button" onclick="day1TrainOption=\'17:26\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day1TrainOption === '17:26' ? 'bg-caramel text-white' : 'bg-cream text-ink border border-caramel/20') + '">高鐵班次 17:26（約 21:01 到麗江站）</button>' +
+                        '</div>' +
+                    '</div>' +
+                    renderPlaceCard({
+                        id: h1.id,
+                        tag: h1.nightLabel,
+                        name: h1.name,
+                        address: h1.address,
+                        note: h1.room + '｜' + h1.distance + '｜' + h1.highlights,
+                        withCtrip: true
+                    }) +
+                '</div>'
+            );
+        }
+
+        function buildDay2Html() {
+            const filtered = DAY2_FOODS.filter(function(f) {
+                return day2FoodFilter === 'all' || f.category === day2FoodFilter;
+            });
+
+            const morningPlaces = [
+                renderPlaceCard({ id: 'd2-b1', tag: '早餐', name: '麗江•臨嬴自助快餐', address: '麗江市古城区', note: '退房寄放行李後享用早餐', withXhs: true }),
+                renderPlaceCard({ id: 'd2-m0', tag: '早市', name: '象山市場', address: '麗江市古城区象山市場', note: '滴滴約 23 分鐘前往在地早市感受煙火氣', withXhs: true })
+            ].join('');
+
+            const marketPlaces = [
+                renderPlaceCard({ id: 'd2-m1', tag: '市集', name: '忠義市場', address: '麗江市古城区古佑巷148號', note: '古城周邊傳統市集', withXhs: true }),
+                renderPlaceCard({ id: 'd2-m2', tag: '舊物店', name: '鶴慶老街（舊物店）', address: '大理州鶴慶縣', note: '麗江出發車程約 45 分鐘', withXhs: true })
+            ].join('');
+
+            const hotelCards = [HOTELS[1], HOTELS[2], HOTELS[3]].map(function(h) {
+                return renderPlaceCard({
+                    id: h.id,
+                    tag: h.nightLabel + '・' + h.badge,
+                    name: h.name,
+                    address: h.address,
+                    note: h.room + '｜' + h.distance + '｜' + h.highlights,
+                    withCtrip: true
+                });
+            }).join('');
+
+            const foodCards = filtered.map(function(f) {
+                return renderPlaceCard({
+                    id: f.id,
+                    tag: f.catLabel,
+                    name: f.name,
+                    address: f.address,
+                    note: f.note,
+                    withXhs: true
+                });
+            }).join('');
+
+            return (
+                '<div class="space-y-6">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 2・2026年12月25日（週五）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">麗江古城・市集與美食地圖</h2>' +
+                        '<p class="text-sm text-muted mt-1">上午：退房寄放行李 → 早餐（麗江•臨嬴自助快餐）→ 象山市場（滴滴23分鐘）→ 入住「麗江紫藤緣客棧」。</p>' +
+                    '</div>' +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">上午早餐與早市</h3>' + morningPlaces + '</section>' +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">第2晚住宿（首選與備選）</h3>' + hotelCards + '</section>' +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">市集與舊物淘寶</h3>' + marketPlaces + '</section>' +
+                    '<section class="space-y-3">' +
+                        '<div class="flex flex-wrap items-center justify-between gap-2">' +
+                            '<h3 class="text-base font-bold text-ink">麗江美食清單</h3>' +
+                            '<div class="flex gap-1.5">' +
+                                '<button type="button" onclick="day2FoodFilter=\'all\';renderContent();" class="px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer ' + (day2FoodFilter === 'all' ? 'bg-caramel text-white' : 'bg-creamCard text-ink border border-caramel/20') + '">全部</button>' +
+                                '<button type="button" onclick="day2FoodFilter=\'hotpot\';renderContent();" class="px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer ' + (day2FoodFilter === 'hotpot' ? 'bg-caramel text-white' : 'bg-creamCard text-ink border border-caramel/20') + '">火鍋/干鍋</button>' +
+                                '<button type="button" onclick="day2FoodFilter=\'local\';renderContent();" class="px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer ' + (day2FoodFilter === 'local' ? 'bg-caramel text-white' : 'bg-creamCard text-ink border border-caramel/20') + '">本地菜/小吃</button>' +
+                            '</div>' +
+                        '</div>' +
+                        foodCards +
+                    '</section>' +
+                '</div>'
+            );
+        }
+
+        function buildDay3Html() {
+            const h3 = HOTELS[4];
+            const lunches = [
+                renderPlaceCard({ id: 'd3-l1', tag: '午餐首選', name: '丹鳳含書・納西農家原味食府', address: '麗江市古城区束河古鎮附近', note: '束河古鎮午餐推薦', withXhs: true }),
+                renderPlaceCard({ id: 'd3-l2', tag: '午餐備選', name: '林記農家柴火飯', address: '麗江市新尚段與010鄉道交叉口西460米', note: '柴火飯風味（車程較遠）', withXhs: true }),
+                renderPlaceCard({ id: 'd3-l3', tag: '午餐備選', name: '傑佳清真牛肉館', address: '麗江市區', note: '清真牛肉風味', withXhs: true })
+            ].join('');
+
+            return (
+                '<div class="space-y-6">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 3・2026年12月26日（週六）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">束河古鎮 → 高鐵往大理</h2>' +
+                        '<p class="text-sm text-muted mt-1">白天束河古鎮（滴滴單程13分鐘）逛古鎮、尋訪舊物店；傍晚搭高鐵（約2小時）往大理，可選 16:20 / 17:04 或 19:54 / 20:22 / 21:34 班次。</p>' +
+                    '</div>' +
+                    renderPlaceCard({ id: 'd3-m1', tag: '古鎮', name: '束河古鎮', address: '麗江市古城区束河古鎮', note: '即日來回，滴滴單程約 13 分鐘', withXhs: true }) +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">午餐推薦</h3>' + lunches + '</section>' +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">第3晚住宿（大理下關）</h3>' +
+                        renderPlaceCard({
+                            id: h3.id,
+                            tag: h3.nightLabel,
+                            name: h3.name,
+                            address: h3.address,
+                            note: h3.room + '｜' + h3.distance + '｜' + h3.highlights,
+                            withCtrip: true
+                        }) +
+                    '</section>' +
+                '</div>'
+            );
+        }
+
+        function buildDay4Html() {
+            const h4 = HOTELS[5];
+            const items = [
+                renderPlaceCard({ id: 'd4-b1', tag: '08:30 早餐首選', name: '納峰清真小吃（欣欣小區店）', address: '大理市下關鎮興國路118號', note: '招牌：牛筋米線', withXhs: true }),
+                renderPlaceCard({ id: 'd4-b2', tag: '08:30 早餐備選', name: '清真民食坊（清真牛肉餃子）', address: '大理市西文巷與西大街交叉口西北140米', note: '營業時間 09:30–18:00', withXhs: true }),
+                renderPlaceCard({ id: 'd4-m1', tag: '09:30 市集 1', name: '下關二手市集', address: '大理市下關雲南建設學校西門', note: '營業時間 07:00–16:00，建議趁早逛', withXhs: true }),
+                renderPlaceCard({ id: 'd4-m2', tag: '09:30 市集 2', name: '龍尾正街舊貨店', address: '大理市下關龍尾正街一帶', note: '舊貨淘寶', withXhs: true }),
+                renderPlaceCard({ id: 'd4-m3', tag: '順路逛', name: '大關邑綜合農貿市場', address: '大理市下關大關邑', note: '順路逛當地市集', withXhs: true }),
+                renderPlaceCard({
+                    id: h4.id,
+                    tag: '18:00 入住',
+                    name: h4.name,
+                    address: h4.address,
+                    note: '12:00 回《那山！na海》退房寄放行李至 18:00；下午龍尾關 → 大理古城，18:00 取行李入住',
+                    withCtrip: true
+                }),
+                renderPlaceCard({ id: 'd4-d1', tag: '晚餐', name: '沙孝保山清真銅瓢牛肉', address: '大理市大理古城/下關店', note: '入住後就近前往晚餐', withXhs: true })
+            ].join('');
+
+            return (
+                '<div class="space-y-4">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 4・2026年12月27日（週日）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">下關二手市集 → 大理古城</h2>' +
+                        '<p class="text-sm text-muted mt-1">08:30 早餐 → 09:30 下關二手市集與龍尾正街 → 12:00 退房寄放行李 → 下午龍尾關與大理古城 → 18:00 入住山山有里並用晚餐。</p>' +
+                    '</div>' +
+                    '<div class="space-y-3">' + items + '</div>' +
+                '</div>'
+            );
+        }
+
+        function buildDay5Html() {
+            const h5 = HOTELS[6];
+            const foods = DAY5_FOODS.map(function(f) {
+                return renderPlaceCard({
+                    id: f.id,
+                    tag: f.catLabel,
+                    name: f.name,
+                    address: f.address,
+                    note: f.note,
+                    withXhs: true
+                });
+            }).join('');
+
+            return (
+                '<div class="space-y-6">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 5・2026年12月28日（週一）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">大理古城慢活與野生菌美食</h2>' +
+                        '<p class="text-sm text-muted mt-1">全天大理古城深度遊，續住「山山有里 Hills Lair奢邸」。</p>' +
+                    '</div>' +
+                    renderPlaceCard({
+                        id: h5.id,
+                        tag: h5.nightLabel,
+                        name: h5.name,
+                        address: h5.address,
+                        note: h5.room + '｜' + h5.distance,
+                        withCtrip: true
+                    }) +
+                    '<section class="space-y-3"><h3 class="text-base font-bold text-ink">大理古城美食清單</h3>' + foods + '</section>' +
+                '</div>'
+            );
+        }
+
+        function buildDay6Html() {
+            const eveningCard = day6EveningPlan === 'market'
+                ? renderPlaceCard({ id: 'd6-e1', tag: '17:00 收尾方案 A', name: '篆新農貿市場', address: '昆明市五華區新聞路', note: '離潘家灣舊貨市場約 1.5 公里（滴滴約 5 分鐘），買雲南咖啡、鮮花餅、野生菌乾貨與小吃', withXhs: true })
+                : renderPlaceCard({ id: 'd6-e2', tag: '17:00 收尾方案 B', name: '翠湖公園 / 文林街', address: '昆明市五華區翠湖公園 / 文林街', note: '離潘家灣約 2 公里，找間獨立咖啡館喝杯雲南小粒咖啡歇腳', withXhs: true });
+
+            return (
+                '<div class="space-y-5">' +
+                    '<div class="warm-card rounded-2xl p-5">' +
+                        '<p class="text-xs font-bold text-caramel">DAY 6・2026年12月29日（週二・返程日）</p>' +
+                        '<h2 class="text-xl font-bold text-ink mt-1">昆明「無行李」市區半日快閃方案</h2>' +
+                        '<p class="text-sm text-muted mt-1">09:30 大理古城出發（滴滴30分）→ 10:00 大理站 → 10:30–12:40 高鐵抵【昆明站】；21:55 班機回程。</p>' +
+                        '<div class="mt-3 flex flex-wrap gap-2">' +
+                            '<button type="button" onclick="day6LuggagePlan=\'A\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day6LuggagePlan === 'A' ? 'bg-snowblue text-white' : 'bg-cream text-ink border border-caramel/20') + '">行李方案 A：先去長水機場寄存再進市區</button>' +
+                            '<button type="button" onclick="day6LuggagePlan=\'B\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day6LuggagePlan === 'B' ? 'bg-snowblue text-white' : 'bg-cream text-ink border border-caramel/20') + '">行李方案 B：寄存昆明站附近再往返</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="space-y-3">' +
+                        renderPlaceCard({ id: 'd6-f1', tag: '13:30 午餐', name: '鴿百年松毛乳鴿（煤機廠店）', address: '昆明市盤龍區白龍路煤機廠內', note: '昆明站出發滴滴約 15–20 分鐘', withXhs: true }) +
+                        renderPlaceCard({ id: 'd6-m1', tag: '15:00 淘寶', name: '潘家灣舊貨市場', address: '昆明市五華區西昌路與人民西路交叉口附近', note: '煤機廠店出發滴滴約 15 分鐘', withXhs: true }) +
+                    '</div>' +
+                    '<div class="space-y-3">' +
+                        '<div class="flex gap-2">' +
+                            '<button type="button" onclick="day6EveningPlan=\'market\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day6EveningPlan === 'market' ? 'bg-caramel text-white' : 'bg-creamCard text-ink border border-caramel/20') + '">17:00 逛篆新農貿市場</button>' +
+                            '<button type="button" onclick="day6EveningPlan=\'coffee\';renderContent();" class="px-3 py-1.5 rounded-xl text-xs font-semibold cursor-pointer ' + (day6EveningPlan === 'coffee' ? 'bg-caramel text-white' : 'bg-creamCard text-ink border border-caramel/20') + '">17:00 翠湖 / 文林街喝咖啡</button>' +
+                        '</div>' +
+                        eveningCard +
+                    '</div>' +
+                '</div>'
+            );
+        }
+
+        // =========================================================================
+        // 6. 心願清單彈窗與初始化
+        // =========================================================================
+        function openWishlistDrawer() {
+            const modal = document.getElementById('wishlistModal');
+            const container = document.getElementById('wishlistListContainer');
+            if (!modal || !container) return;
+
+            if (!wishlist.length) {
+                container.innerHTML = '<p class="text-sm text-muted text-center py-6">目前還沒有收藏項目，點擊餐廳或市集旁的「🤍 收藏」即可加入。</p>';
+            } else {
+                container.innerHTML = wishlist.map(function(item) {
+                    return (
+                        '<div class="p-3 rounded-xl bg-cream border border-caramel/15 flex items-center justify-between gap-2">' +
+                            '<div>' +
+                                '<p class="text-sm font-bold text-ink">' + escapeHtml(item.title) + '</p>' +
+                                (item.subtitle ? '<p class="text-xs text-muted mt-0.5">' + escapeHtml(item.subtitle) + '</p>' : '') +
+                            '</div>' +
+                            '<button type="button" onclick="toggleWishlist(\'' + escapeHtml(item.id) + '\', \'' + escapeHtml(item.title) + '\', \'' + escapeHtml(item.subtitle) + '\');openWishlistDrawer();" ' +
+                                    'class="text-xs px-2.5 py-1 rounded-lg bg-white text-xhs border border-xhs/30 cursor-pointer shrink-0">移除</button>' +
+                        '</div>'
+                    );
+                }).join('');
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeWishlistDrawer() {
+            const modal = document.getElementById('wishlistModal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copyWishlistSummary() {
+            if (!wishlist.length) {
+                showToast('心願清單目前是空的');
+                return;
+            }
+            const lines = wishlist.map(function(w, idx) {
+                return (idx + 1) + '. ' + w.title + (w.subtitle ? '（' + w.subtitle + '）' : '');
+            });
+            copyText('❤️ 她的雲南心願清單：\n' + lines.join('\n'), '心願清單');
+        }
+
+        persistLinksEverywhere();
+        updateHeaderStats();
+        renderTabs();
+        renderContent();
+    </script>
+</body>
+</html>
